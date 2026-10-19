@@ -33,6 +33,8 @@
             txtArtist = new TextBox();
             txtRating = new TextBox();
             btnAdd = new Button();
+            txtSelected = new TextBox();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // listSong
@@ -42,6 +44,7 @@
             listSong.Name = "listSong";
             listSong.Size = new Size(608, 349);
             listSong.TabIndex = 0;
+            listSong.SelectedIndexChanged += OnChanged;
             // 
             // txtTitle
             // 
@@ -74,15 +77,39 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(105, 23);
             btnAdd.TabIndex = 4;
-            btnAdd.Text = "button1";
+            btnAdd.Text = "추가";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += OnAdd;
+            // 
+            // txtSelected
+            // 
+            txtSelected.Enabled = false;
+            txtSelected.Location = new Point(12, 396);
+            txtSelected.Name = "txtSelected";
+            txtSelected.PlaceholderText = "삭제를 위해 선택된 노래";
+            txtSelected.ReadOnly = true;
+            txtSelected.Size = new Size(497, 23);
+            txtSelected.TabIndex = 6;
+            txtSelected.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Enabled = false;
+            btnDelete.Location = new Point(515, 396);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(105, 23);
+            btnDelete.TabIndex = 6;
+            btnDelete.Text = "삭제";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += OnDelete;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(632, 426);
+            Controls.Add(btnDelete);
+            Controls.Add(txtSelected);
             Controls.Add(btnAdd);
             Controls.Add(txtRating);
             Controls.Add(txtArtist);
@@ -101,5 +128,7 @@
         private TextBox txtArtist;
         private TextBox txtRating;
         private Button btnAdd;
+        private TextBox txtSelected;
+        private Button btnDelete;
     }
 }
